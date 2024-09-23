@@ -101,6 +101,12 @@
         console.error("Error loading Unity loader script:", loaderUrl);
       };
       document.body.appendChild(script);
+	  
+	    if (window.indexedDB != null) {
+          window.indexedDB.deleteDatabase("/idbfs").onsuccess = function() {
+           console.log("IndexedDB database cleared.");
+    };
+  }
     </script>
   </body>
 </html>
